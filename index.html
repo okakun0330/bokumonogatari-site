@@ -166,6 +166,7 @@ h2{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(24px,4.4vw,36px);f
 .mem-tab{display:flex;gap:10px;margin-bottom:36px}
 .mem-tab span{font-family:"M PLUS Rounded 1c",sans-serif;font-size:13px;font-weight:800;padding:9px 20px;border-radius:999px;color:var(--ink-2)}
 .mem-tab span.on{background:var(--ink);color:var(--cream)}
+.mem-tab span{cursor:pointer}
 .mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
 .mem-card{text-align:center}
 .mem-card .ph{aspect-ratio:1;border-radius:50%;margin:0 auto 14px;width:86%;border:4px solid var(--white);box-shadow:var(--shadow)}
@@ -309,12 +310,12 @@ footer{padding:56px 0 40px;text-align:center;border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="eyebrow">MEMBERS</div>
     <h2>キャスト・クリエイター</h2>
-    <div class="mem-tab"><span class="on">CAST</span><span>CREATORS</span></div>
+    <div class="mem-tab"><span class="on" data-group="cast">CAST</span><span data-group="creators">CREATORS</span></div>
     <div class="mem-grid">
-      <a class="mem-card" href="#members"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1n--o-9BMOl0WzJEeDpffXvqSGFdaVJRj&sz=w1000') center/cover"></div><div class="n">おかくん</div><div class="r">CAST</div></a>
-      <a class="mem-card" href="#members"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1RXN_nFc1UUVAjeb6PP1S9CKGiOiAM0JP&sz=w1000') center/cover"></div><div class="n">かっか</div><div class="r">CAST</div></a>
-      <a class="mem-card" href="#members"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1WFkHN7EqSBGv78QoKF4fcR7YrLwg4did&sz=w1000') center/cover"></div><div class="n">私</div><div class="r">脚本・監督</div></a>
-      <a class="mem-card" href="#members"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1jxZu8jpcyYrODc6tYQLxs9vVbnuO7AHw&sz=w1000') center/cover"></div><div class="n">酒井さん</div><div class="r">カメラ・編集</div></a>
+      <a class="mem-card" data-group="cast" href="https://www.instagram.com/okakun_0330/?hl=ja" target="_blank" rel="noopener"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1n--o-9BMOl0WzJEeDpffXvqSGFdaVJRj&sz=w1000') center/cover"></div><div class="n">おかくん</div><div class="r">CAST</div></a>
+      <a class="mem-card" data-group="cast" href="https://www.instagram.com/katsukatsu_29/?hl=ja" target="_blank" rel="noopener"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1RXN_nFc1UUVAjeb6PP1S9CKGiOiAM0JP&sz=w1000') center/cover"></div><div class="n">かっか</div><div class="r">CAST</div></a>
+      <a class="mem-card" data-group="creators" href="https://www.instagram.com/shinya_dayo/?hl=ja" target="_blank" rel="noopener"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1WFkHN7EqSBGv78QoKF4fcR7YrLwg4did&sz=w1000') center/cover"></div><div class="n">私</div><div class="r">脚本・監督</div></a>
+      <a class="mem-card" data-group="creators" href="https://www.instagram.com/k25_wn/?hl=ja" target="_blank" rel="noopener"><div class="ph" style="background:url('https://drive.google.com/thumbnail?id=1jxZu8jpcyYrODc6tYQLxs9vVbnuO7AHw&sz=w1000') center/cover"></div><div class="n">酒井さん</div><div class="r">カメラ・編集</div></a>
     </div>
   </div>
 </section>
@@ -365,6 +366,20 @@ document.querySelectorAll('#menu a').forEach(function(a){
     document.getElementById('menu').classList.remove('open');
   });
 });
+
+function memFilter(g){
+  document.querySelectorAll('.mem-card').forEach(function(c){
+    c.style.display = (c.dataset.group === g) ? '' : 'none';
+  });
+}
+document.querySelectorAll('.mem-tab span').forEach(function(tab){
+  tab.addEventListener('click', function(){
+    document.querySelectorAll('.mem-tab span').forEach(function(t){t.classList.remove('on')});
+    tab.classList.add('on');
+    memFilter(tab.dataset.group);
+  });
+});
+memFilter('cast');
 </script>
 
 </body>
