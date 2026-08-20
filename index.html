@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>僕らの人生物語｜人生にまつわるショートドラマ</title>
+<meta name="description" content="恋愛、友情、家族、学校、仕事。誰にでも起こり得る人生の一瞬をショートドラマにする「僕らの人生物語」の公式サイト。">
+<meta property="og:title" content="僕らの人生物語">
+<meta property="og:description" content="人生は、たぶんドラマよりドラマだ。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF8ED;
+  --white:#FFFFFF;
+  --ink:#332C22;
+  --ink-2:#8A8072;
+  --line:#F0E6D2;
+  --pink:#FF6F91;
+  --pink-lt:#FFE3EC;
+  --yellow:#FFC93C;
+  --yellow-lt:#FFF4D6;
+  --sky:#4FC3E0;
+  --sky-lt:#DFF5FA;
+  --lav:#A78BFA;
+  --lav-lt:#EFE8FF;
+  --mint:#4FD6B0;
+  --mint-lt:#E1FAF1;
+  --maxw:1120px;
+  --shadow:0 10px 26px rgba(51,44,34,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);color:var(--ink);
+  font-family:"Noto Sans JP",-apple-system,sans-serif;
+  line-height:1.9;letter-spacing:.02em;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+.rd{font-family:"M PLUS Rounded 1c","Noto Sans JP",sans-serif}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.55;z-index:0}
+
+/* nav */
+.nav{position:sticky;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:rgba(255,248,237,.86);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:900;font-size:16px;letter-spacing:.02em;color:var(--ink)}
+.nav-btn{background:var(--pink);border:none;color:#fff;width:46px;height:46px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;box-shadow:var(--shadow)}
+.nav-btn span{width:16px;height:2px;background:#fff;border-radius:2px;display:block}
+
+.menu{position:fixed;inset:0;background:var(--cream);z-index:99;display:none;flex-direction:column;justify-content:center;padding:24px;overflow:hidden}
+.menu.open{display:flex}
+.menu ul{list-style:none;display:grid;gap:8px;position:relative;z-index:1}
+.menu a{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(26px,7vw,42px);font-weight:900;color:var(--ink);transition:.2s;display:inline-block}
+.menu a:hover{color:var(--pink);transform:translateX(6px)}
+.menu-close{position:absolute;top:18px;right:24px;background:var(--ink);border:none;color:var(--cream);width:46px;height:46px;border-radius:50%;cursor:pointer;font-size:18px;z-index:2}
+
+/* hero */
+.hero{position:relative;padding:64px 0 90px;overflow:hidden}
+.hero .blob.b1{width:280px;height:280px;background:var(--pink-lt);top:-80px;right:-60px}
+.hero .blob.b2{width:180px;height:180px;background:var(--sky-lt);bottom:20px;left:-60px}
+.hero .blob.b3{width:90px;height:90px;background:var(--yellow-lt);top:120px;left:20%}
+.hero-in{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero-in>*{min-width:0}
+.polastack{min-width:220px}
+.brand-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border-radius:999px;padding:8px 18px;font-size:12px;font-weight:700;color:var(--ink);box-shadow:var(--shadow);margin-bottom:24px}
+.brand-badge b{width:8px;height:8px;background:var(--pink);border-radius:50%;display:inline-block}
+.hero h1{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(32px,6vw,54px);font-weight:900;line-height:1.4;margin-bottom:22px}
+.hero h1 .mark{position:relative;display:inline-block;color:var(--ink)}
+.hero h1 .mark::after{content:"";position:absolute;left:-4px;right:-4px;bottom:.08em;height:.32em;background:var(--yellow);z-index:-1;border-radius:4px}
+.hero .sub{font-size:14px;color:var(--ink-2);margin-bottom:30px}
+.hero .btns{display:flex;gap:12px;flex-wrap:wrap}
+
+.polastack{position:relative;height:360px}
+.polaroid{position:absolute;background:var(--white);border-radius:14px;padding:12px 12px 44px;box-shadow:var(--shadow);width:72%}
+.polaroid .ph{aspect-ratio:3/4;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em}
+.polaroid .cap{position:absolute;left:16px;right:16px;bottom:14px;font-family:"M PLUS Rounded 1c",sans-serif;font-size:13px;font-weight:700;color:var(--ink)}
+.p1{top:0;left:6%;transform:rotate(-7deg);z-index:2}
+.p1 .ph{background:linear-gradient(160deg,var(--pink),#ff9db3)}
+.p2{top:10%;right:2%;transform:rotate(6deg);z-index:1}
+.p2 .ph{background:linear-gradient(160deg,var(--sky),#8fdcef)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:14px;padding:15px 30px;border-radius:999px;transition:.15s;box-shadow:var(--shadow)}
+.btn:hover{transform:translateY(-2px)}
+.btn-1{background:var(--pink);color:#fff}
+.btn-2{background:var(--white);color:var(--ink)}
+
+/* sections */
+section{padding:88px 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:"M PLUS Rounded 1c",sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--pink);margin-bottom:16px}
+.eyebrow::before{content:"";width:7px;height:7px;background:var(--pink);border-radius:50%;display:inline-block}
+h2{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(24px,4.4vw,36px);font-weight:900;line-height:1.5;margin-bottom:24px}
+.center{text-align:center}
+.lead{font-size:14px;color:var(--ink-2);line-height:2.1;max-width:540px}
+.lead.mx{margin-left:auto;margin-right:auto}
+
+/* concept */
+.s-concept{background:var(--white);text-align:center}
+.s-concept .lead{font-size:16px;color:var(--ink);line-height:2.3}
+
+/* pickup story */
+.pu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;padding-top:10px}
+.pu-card{background:var(--white);border-radius:18px;padding:14px 14px 20px;box-shadow:var(--shadow);transition:.2s}
+.pu-card:hover{transform:translateY(-6px) rotate(-1deg)}
+.pu-card:nth-child(1){transform:rotate(-2deg)}
+.pu-card:nth-child(2){transform:rotate(1.5deg)}
+.pu-card:nth-child(3){transform:rotate(-1deg)}
+.pu-ph{aspect-ratio:3/4;border-radius:12px;position:relative;display:flex;align-items:flex-start;justify-content:flex-end;padding:12px}
+.pu-card:nth-child(1) .pu-ph{background:linear-gradient(160deg,var(--pink),#ffb0c4)}
+.pu-card:nth-child(2) .pu-ph{background:linear-gradient(160deg,var(--lav),#cabaff)}
+.pu-card:nth-child(3) .pu-ph{background:linear-gradient(160deg,var(--mint),#a0ecd4)}
+.pu-genre-tag{background:var(--white);color:var(--ink);font-size:10px;font-weight:800;padding:6px 12px;border-radius:999px;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.pu-title{font-family:"M PLUS Rounded 1c",sans-serif;font-size:18px;font-weight:900;margin:16px 4px 8px}
+.pu-copy{font-size:12px;color:var(--ink-2);line-height:1.85;margin:0 4px}
+
+/* stories grid */
+.st-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:36px}
+.st-card{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);background:var(--white)}
+.st-ph{aspect-ratio:9/13;display:flex;align-items:flex-end;padding:10px}
+.st-tag{font-size:10px;font-weight:800;color:#fff;background:rgba(0,0,0,.22);padding:4px 10px;border-radius:999px}
+.st-more{text-align:center;margin-top:30px}
+.st-more a{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:13px;color:var(--pink)}
+
+/* achievements */
+.s-ach{background:var(--white)}
+.ach-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.ach{border-radius:18px;padding:32px 18px;text-align:center;box-shadow:var(--shadow)}
+.ach:nth-child(1){background:var(--pink-lt)}
+.ach:nth-child(2){background:var(--sky-lt)}
+.ach:nth-child(3){background:var(--yellow-lt)}
+.ach:nth-child(4){background:var(--lav-lt)}
+.ach .n{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(28px,5.6vw,42px);font-weight:900;color:var(--ink)}
+.ach .n small{font-size:.4em;margin-left:2px;color:var(--ink-2)}
+.ach .l{font-size:11px;color:var(--ink-2);margin-top:10px;font-weight:700}
+
+/* column */
+.col-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.col-card{background:var(--white);border-radius:16px;padding:14px;box-shadow:var(--shadow);transition:.2s}
+.col-card:hover{transform:translateY(-4px)}
+.col-card .cat{display:inline-block;font-size:10px;font-weight:800;padding:5px 12px;border-radius:999px;margin-bottom:12px}
+.col-card:nth-child(1) .cat{background:var(--pink-lt);color:#B4315A}
+.col-card:nth-child(2) .cat{background:var(--mint-lt);color:#12836A}
+.col-card:nth-child(3) .cat{background:var(--yellow-lt);color:#9A6B00}
+.col-card .ph{aspect-ratio:16/11;border-radius:10px;margin-bottom:14px}
+.col-card:nth-child(1) .ph{background:linear-gradient(160deg,#ffd1de,var(--pink-lt))}
+.col-card:nth-child(2) .ph{background:linear-gradient(160deg,#d4fff0,var(--mint-lt))}
+.col-card:nth-child(3) .ph{background:linear-gradient(160deg,#ffe9b0,var(--yellow-lt))}
+.col-card .t{font-size:13px;line-height:1.8;font-weight:500}
+
+/* real story */
+.s-realstory{background:linear-gradient(180deg,var(--lav-lt),var(--cream) 70%);text-align:center;overflow:hidden}
+.rs-msg{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(17px,3vw,22px);font-weight:800;line-height:1.9;margin:30px auto 36px;max-width:560px}
+.rs-chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:40px}
+.rs-chip{font-family:"M PLUS Rounded 1c",sans-serif;border-radius:999px;padding:9px 18px;font-size:12px;font-weight:800;box-shadow:0 4px 10px rgba(51,44,34,.08)}
+.rs-chip:nth-child(6n+1){background:var(--pink-lt);color:#B4315A}
+.rs-chip:nth-child(6n+2){background:var(--sky-lt);color:#146B85}
+.rs-chip:nth-child(6n+3){background:var(--yellow-lt);color:#9A6B00}
+.rs-chip:nth-child(6n+4){background:var(--lav-lt);color:#5B3FBF}
+.rs-chip:nth-child(6n+5){background:var(--mint-lt);color:#12836A}
+.rs-chip:nth-child(6n+6){background:var(--white);color:var(--ink)}
+
+/* members */
+.mem-tab{display:flex;gap:10px;margin-bottom:36px}
+.mem-tab span{font-family:"M PLUS Rounded 1c",sans-serif;font-size:13px;font-weight:800;padding:9px 20px;border-radius:999px;color:var(--ink-2)}
+.mem-tab span.on{background:var(--ink);color:var(--cream)}
+.mem-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.mem-card{text-align:center}
+.mem-card .ph{aspect-ratio:1;border-radius:50%;margin:0 auto 14px;width:86%;border:4px solid var(--white);box-shadow:var(--shadow)}
+.mem-card:nth-child(4n+1) .ph{background:linear-gradient(160deg,var(--pink),#ffb0c4)}
+.mem-card:nth-child(4n+2) .ph{background:linear-gradient(160deg,var(--sky),#8fdcef)}
+.mem-card:nth-child(4n+3) .ph{background:linear-gradient(160deg,var(--lav),#cabaff)}
+.mem-card:nth-child(4n+4) .ph{background:linear-gradient(160deg,var(--mint),#a0ecd4)}
+.mem-card .n{font-family:"M PLUS Rounded 1c",sans-serif;font-size:14px;font-weight:800}
+.mem-card .r{font-size:11px;color:var(--ink-2);margin-top:4px}
+
+/* for business */
+.s-biz{background:var(--white)}
+.biz-card{background:var(--ink);color:var(--cream);border-radius:26px;padding:52px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;overflow:hidden;position:relative}
+.biz-card>*{min-width:0}
+.biz-card .eyebrow{color:var(--yellow)}
+.biz-card .eyebrow::before{background:var(--yellow)}
+.biz-card h2{color:var(--cream)}
+.biz-card .lead{color:#C9C2B4}
+.biz-ph{aspect-ratio:4/3;border-radius:16px;background:linear-gradient(160deg,#4a4234,#332c22)}
+@media(max-width:820px){.biz-card{grid-template-columns:1fr;padding:32px}}
+
+/* news */
+.news-list{display:grid;gap:12px}
+.news-i{background:var(--white);border-radius:14px;box-shadow:var(--shadow);display:grid;grid-template-columns:110px 130px 1fr;gap:18px;padding:18px 22px;align-items:center;font-size:13px}
+.news-i .d{color:var(--ink-2);font-weight:700}
+.news-i .c{font-family:"M PLUS Rounded 1c",sans-serif;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;background:var(--pink-lt);color:#B4315A;justify-self:start}
+@media(max-width:560px){.news-i{grid-template-columns:1fr;gap:8px}}
+
+/* about */
+.s-about{background:var(--white)}
+
+/* contact */
+.s-contact{text-align:center}
+.ct-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:36px 0 40px;text-align:left}
+.ct-item{background:var(--white);border-radius:14px;padding:20px 22px;font-size:13px;font-weight:700;box-shadow:var(--shadow)}
+
+/* footer */
+footer{padding:56px 0 40px;text-align:center;border-top:1px solid var(--line)}
+.foot-logo{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:900;font-size:17px;margin-bottom:20px}
+.foot-sns{display:flex;gap:22px;justify-content:center;margin-bottom:24px;font-size:12px;font-weight:700;color:var(--ink-2)}
+.foot-op{font-size:11px;color:var(--ink-2)}
+
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr}
+  .polastack{height:300px;max-width:360px;margin:0 auto}
+  .pu-grid{grid-template-columns:1fr}
+  .st-grid{grid-template-columns:repeat(2,1fr)}
+  .ach-grid{grid-template-columns:1fr 1fr}
+  .col-grid{grid-template-columns:1fr}
+  .mem-grid{grid-template-columns:repeat(2,1fr)}
+  .ct-grid{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  section{padding:64px 0}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="#top">僕らの人生物語</a>
+  <button class="nav-btn" onclick="document.getElementById('menu').classList.add('open')" aria-label="メニューを開く">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<div class="menu" id="menu">
+  <span class="blob" style="width:220px;height:220px;background:var(--pink-lt);top:-60px;right:-40px"></span>
+  <span class="blob" style="width:160px;height:160px;background:var(--sky-lt);bottom:-40px;left:-40px"></span>
+  <button class="menu-close" onclick="document.getElementById('menu').classList.remove('open')" aria-label="閉じる">×</button>
+  <ul>
+    <li><a href="#top">TOP</a></li>
+    <li><a href="stories.html">STORY</a></li>
+    <li><a href="works.html">WORKS</a></li>
+    <li><a href="#column">COLUMN</a></li>
+    <li><a href="#members">MEMBERS</a></li>
+    <li><a href="#realstory">REAL STORY</a></li>
+    <li><a href="#news">NEWS</a></li>
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#business">FOR BUSINESS</a></li>
+    <li><a href="#contact">CONTACT</a></li>
+  </ul>
+</div>
+
+<header class="hero" id="top">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+  <div class="wrap hero-in">
+    <div>
+      <div class="brand-badge"><b></b>僕らの人生物語</div>
+      <h1>人生は、<br><span class="mark">たぶんドラマより</span><br>ドラマだ</h1>
+      <p class="sub">人生にまつわるショートドラマ</p>
+      <div class="btns">
+        <a class="btn btn-1" href="stories.html">作品を見る</a>
+        <a class="btn btn-2" href="#realstory">物語を投稿する</a>
+      </div>
+    </div>
+    <div class="polastack">
+      <div class="polaroid p1"><div class="ph rd">PHOTO</div><div class="cap">日常の1コマ ✎</div></div>
+      <div class="polaroid p2"><div class="ph rd">PHOTO</div><div class="cap">撮影の裏側 ✎</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="s-concept">
+  <div class="wrap">
+    <div class="eyebrow center">CONCEPT</div>
+    <h2>誰にだって、<br>物語がある。</h2>
+    <p class="lead mx">
+      恋をした日。誰かを嫌いになった日。<br>嘘をついた日。家族の大切さに気づいた日。<br><br>
+      僕らは、そんな人生の一瞬を<br>ショートドラマにしています。
+    </p>
+  </div>
+</section>
+
+<section id="story">
+  <div class="wrap">
+    <div class="eyebrow">PICK UP STORY</div>
+    <h2>最新作品・人気作品</h2>
+    <div class="pu-grid">
+      <a class="pu-card" href="story-0331.html">
+        <div class="pu-ph"><span class="pu-genre-tag">青春 / 恋愛</span></div>
+        <div class="pu-title">『3月31日』</div>
+        <div class="pu-copy">3月31日。君は僕に、15回目の告白をする。</div>
+      </a>
+      <a class="pu-card" href="stories.html">
+        <div class="pu-ph"><span class="pu-genre-tag">家族</span></div>
+        <div class="pu-title">『おかえりのない家』</div>
+        <div class="pu-copy">「ただいま」を言う相手が、もういない夜のこと。</div>
+      </a>
+      <a class="pu-card" href="stories.html">
+        <div class="pu-ph"><span class="pu-genre-tag">友情 / 学校</span></div>
+        <div class="pu-title">『15センチの距離』</div>
+        <div class="pu-copy">親友との間にできた、埋められない15センチ。</div>
+      </a>
+    </div>
+    <div class="st-grid">
+      <div class="st-card"><div class="st-ph rd" style="background:linear-gradient(160deg,var(--pink),#ffb0c4)"><span class="st-tag">恋愛</span></div></div>
+      <div class="st-card"><div class="st-ph rd" style="background:linear-gradient(160deg,var(--yellow),#ffe08a)"><span class="st-tag">家族</span></div></div>
+      <div class="st-card"><div class="st-ph rd" style="background:linear-gradient(160deg,var(--sky),#8fdcef)"><span class="st-tag">学園</span></div></div>
+      <div class="st-card"><div class="st-ph rd" style="background:linear-gradient(160deg,var(--lav),#cabaff)"><span class="st-tag">青春</span></div></div>
+    </div>
+    <div class="st-more"><a href="stories.html">STORY 一覧を見る ›</a></div>
+  </div>
+</section>
+
+<section class="s-ach" id="achievements">
+  <div class="wrap">
+    <div class="eyebrow">ACHIEVEMENTS</div>
+    <h2>数字で見る<br>僕らの人生物語</h2>
+    <p class="lead" style="margin-bottom:32px">※現時点は概算値。実績確定後に更新します。</p>
+    <div class="ach-grid">
+      <div class="ach"><div class="n">4,002<small>万回</small></div><div class="l">累計再生数</div></div>
+      <div class="ach"><div class="n">2<small>万人</small></div><div class="l">Instagramフォロワー</div></div>
+      <div class="ach"><div class="n">52<small>作品</small></div><div class="l">公開作品数</div></div>
+      <div class="ach"><div class="n">627<small>万回</small></div><div class="l">最高再生数</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="column">
+  <div class="wrap">
+    <div class="eyebrow">COLUMN</div>
+    <h2>人生・恋愛・家族・作品</h2>
+    <div class="col-grid">
+      <a class="col-card" href="#column">
+        <div class="cat">人生</div>
+        <div class="ph"></div>
+        <div class="t">「後悔しない選択」なんて、本当にあるんだろうか。</div>
+      </a>
+      <a class="col-card" href="#column">
+        <div class="cat">作品</div>
+        <div class="ph"></div>
+        <div class="t">『3月31日』撮影の裏側 — 15回の告白シーンに込めたこと</div>
+      </a>
+      <a class="col-card" href="#column">
+        <div class="cat">家族</div>
+        <div class="ph"></div>
+        <div class="t">「おかえり」が言えなかった、あの日の話。</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="s-realstory" id="realstory">
+  <span class="blob" style="width:200px;height:200px;background:var(--pink-lt);top:10%;right:-60px"></span>
+  <span class="blob" style="width:140px;height:140px;background:var(--yellow-lt);bottom:10%;left:-40px"></span>
+  <div class="wrap" style="position:relative;z-index:1">
+    <div class="eyebrow center">REAL STORY</div>
+    <h2>あなたの人生物語を<br>教えてください。</h2>
+    <p class="rs-msg">あなたの人生の一ページが、<br>僕らの次の物語になるかもしれません。</p>
+    <div class="rs-chips">
+      <span class="rs-chip">恋愛</span><span class="rs-chip">家族</span><span class="rs-chip">友情</span>
+      <span class="rs-chip">学校</span><span class="rs-chip">仕事</span><span class="rs-chip">後悔</span>
+      <span class="rs-chip">別れ</span><span class="rs-chip">再会</span><span class="rs-chip">忘れられない出来事</span>
+      <span class="rs-chip">その他</span>
+    </div>
+    <a class="btn btn-1" href="#">あなたの物語を投稿する</a>
+  </div>
+</section>
+
+<section id="members">
+  <div class="wrap">
+    <div class="eyebrow">MEMBERS</div>
+    <h2>キャスト・クリエイター</h2>
+    <div class="mem-tab"><span class="on">CAST</span><span>CREATORS</span></div>
+    <div class="mem-grid">
+      <a class="mem-card" href="#members"><div class="ph"></div><div class="n">出演者 A</div><div class="r">出演作品 12</div></a>
+      <a class="mem-card" href="#members"><div class="ph"></div><div class="n">出演者 B</div><div class="r">出演作品 8</div></a>
+      <a class="mem-card" href="#members"><div class="ph"></div><div class="n">出演者 C</div><div class="r">出演作品 15</div></a>
+      <a class="mem-card" href="#members"><div class="ph"></div><div class="n">出演者 D</div><div class="r">出演作品 6</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="s-biz" id="business">
+  <div class="wrap">
+    <div class="biz-card">
+      <div>
+        <div class="eyebrow">FOR BUSINESS</div>
+        <h2>広告を、<br>物語に。</h2>
+        <p class="lead" style="margin-bottom:28px">
+          商品を説明するのではなく、その商品が存在する人生を描く。<br>
+          「僕らの人生物語」では、縦型ショートドラマを活用した企業タイアップ・PRドラマを制作しています。企画から公開までワンストップで対応可能です。
+        </p>
+        <a class="btn btn-1" href="#contact">企業タイアップについて相談する</a>
+      </div>
+      <div class="biz-ph"></div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap">
+    <div class="eyebrow">NEWS</div>
+    <h2>最新情報</h2>
+    <div class="news-list">
+      <div class="news-i"><div class="d">2026.09.01</div><div class="c">NEW STORY</div><div>新作ショートドラマ『おかえりのない家』を公開しました</div></div>
+      <div class="news-i"><div class="d">2026.08.10</div><div class="c">COLLABORATION</div><div>企業様とのタイアップドラマを公開しました</div></div>
+      <div class="news-i"><div class="d">2026.07.01</div><div class="c">CAST</div><div>新キャストが加入しました</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="s-about" id="about">
+  <div class="wrap">
+    <div class="eyebrow">ABOUT</div>
+    <h2>僕らの人生物語とは</h2>
+    <p class="lead" style="font-size:15px;line-height:2.3;max-width:600px">
+      「僕らの人生物語」は、人生にまつわる物語を描く縦型ショートドラマチームです。<br><br>
+      恋愛、友情、家族、学校、仕事。誰もが一度は経験したことのある感情から、まだ誰も経験したことのない物語まで。<br><br>
+      スマートフォンという小さな画面から、誰かの人生を少しだけ動かす作品を届けます。
+    </p>
+  </div>
+</section>
+
+<section class="s-contact" id="contact">
+  <div class="wrap">
+    <div class="eyebrow center">CONTACT</div>
+    <h2>お問い合わせ</h2>
+    <div class="ct-grid">
+      <div class="ct-item">企業タイアップについて</div>
+      <div class="ct-item">ショートドラマ制作について</div>
+      <div class="ct-item">広告・PRについて</div>
+      <div class="ct-item">出演について</div>
+      <div class="ct-item">取材・メディアについて</div>
+      <div class="ct-item">その他</div>
+    </div>
+    <a class="btn btn-1" href="#">お問い合わせフォームへ</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-logo">僕らの人生物語</div>
+    <div class="foot-sns">
+      <a href="https://www.instagram.com/bokumonogatari1/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.tiktok.com/@bokumonogatari" target="_blank" rel="noopener">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+    <div class="foot-op">運営: Film倶楽部株式会社</div>
+  </div>
+</footer>
+
+</body>
+</html>

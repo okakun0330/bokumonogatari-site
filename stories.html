@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STORY｜僕らの人生物語</title>
+<meta name="description" content="「僕らの人生物語」が届けてきたショートドラマ作品の一覧。恋愛、家族、学園、青春など、人生の一瞬を切り取った物語をご覧いただけます。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF8ED; --white:#FFFFFF; --ink:#332C22; --ink-2:#8A8072; --line:#F0E6D2;
+  --pink:#FF6F91; --pink-lt:#FFE3EC; --yellow:#FFC93C; --yellow-lt:#FFF4D6;
+  --sky:#4FC3E0; --sky-lt:#DFF5FA; --lav:#A78BFA; --lav-lt:#EFE8FF;
+  --mint:#4FD6B0; --mint-lt:#E1FAF1; --maxw:1120px; --shadow:0 10px 26px rgba(51,44,34,.10);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--cream);color:var(--ink);font-family:"Noto Sans JP",-apple-system,sans-serif;line-height:1.9;letter-spacing:.02em}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.nav{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:rgba(255,248,237,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-logo{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:900;font-size:16px}
+.crumb{font-size:12px;color:var(--ink-2)}
+.crumb a{color:var(--pink);font-weight:700}
+
+.hero{padding-top:64px;padding-bottom:40px;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:"M PLUS Rounded 1c",sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--pink);margin-bottom:16px}
+.eyebrow::before{content:"";width:7px;height:7px;background:var(--pink);border-radius:50%}
+h1{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(26px,5vw,40px);font-weight:900;margin-bottom:16px}
+.lead{font-size:14px;color:var(--ink-2);max-width:520px;margin:0 auto}
+
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;padding:0 0 50px}
+.f-chip{font-family:"M PLUS Rounded 1c",sans-serif;font-size:12px;font-weight:800;padding:9px 18px;border-radius:999px;background:var(--white);color:var(--ink-2);box-shadow:var(--shadow)}
+.f-chip.on{background:var(--ink);color:var(--cream)}
+
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;padding-bottom:100px}
+.card{background:var(--white);border-radius:16px;padding:12px 12px 18px;box-shadow:var(--shadow);transition:.2s}
+.card:hover{transform:translateY(-5px)}
+.ph{aspect-ratio:3/4;border-radius:10px;position:relative;display:flex;align-items:flex-start;justify-content:flex-end;padding:10px}
+.tag{background:var(--white);font-size:10px;font-weight:800;padding:5px 11px;border-radius:999px;box-shadow:0 4px 8px rgba(0,0,0,.12)}
+.t{font-family:"M PLUS Rounded 1c",sans-serif;font-size:15px;font-weight:800;margin:14px 4px 6px}
+.d{font-size:12px;color:var(--ink-2);margin:0 4px}
+
+footer{padding:40px 0;text-align:center;font-size:11px;color:var(--ink-2);border-top:1px solid var(--line)}
+
+@media(max-width:820px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-logo" href="index.html">僕らの人生物語</a>
+  <div class="crumb"><a href="index.html">TOP</a> › STORY</div>
+</nav>
+
+<div class="hero wrap">
+  <div class="eyebrow" style="justify-content:center">STORY</div>
+  <h1>これまでの物語</h1>
+  <p class="lead">恋愛、家族、学園、青春。人生の一瞬を切り取った、すべての作品をここに残しています。</p>
+</div>
+
+<div class="filters">
+  <span class="f-chip on">すべて</span>
+  <span class="f-chip">恋愛</span>
+  <span class="f-chip">家族</span>
+  <span class="f-chip">学園</span>
+  <span class="f-chip">青春</span>
+  <span class="f-chip">友情</span>
+  <span class="f-chip">コメディ</span>
+  <span class="f-chip">サスペンス</span>
+  <span class="f-chip">社会</span>
+</div>
+
+<div class="wrap">
+  <div class="grid">
+    <a class="card" href="story-0331.html">
+      <div class="ph" style="background:linear-gradient(160deg,var(--pink),#ffb0c4)"><span class="tag">青春 / 恋愛</span></div>
+      <div class="t">『3月31日』</div>
+      <div class="d">3月31日。君は僕に、15回目の告白をする。</div>
+    </a>
+    <a class="card" href="#">
+      <div class="ph" style="background:linear-gradient(160deg,var(--lav),#cabaff)"><span class="tag">家族</span></div>
+      <div class="t">『おかえりのない家』</div>
+      <div class="d">「ただいま」を言う相手が、もういない夜のこと。</div>
+    </a>
+    <a class="card" href="#">
+      <div class="ph" style="background:linear-gradient(160deg,var(--mint),#a0ecd4)"><span class="tag">友情 / 学校</span></div>
+      <div class="t">『15センチの距離』</div>
+      <div class="d">親友との間にできた、埋められない15センチ。</div>
+    </a>
+    <a class="card" href="#">
+      <div class="ph" style="background:linear-gradient(160deg,var(--yellow),#ffe08a)"><span class="tag">学園</span></div>
+      <div class="t">『放課後、君だけ』</div>
+      <div class="d">誰もいない教室で、初めて名前を呼ばれた。</div>
+    </a>
+    <a class="card" href="#">
+      <div class="ph" style="background:linear-gradient(160deg,var(--sky),#8fdcef)"><span class="tag">社会 / ヒューマン</span></div>
+      <div class="t">『35歳の受験生』</div>
+      <div class="d">もう一度、やり直したい人生があった。</div>
+    </a>
+    <a class="card" href="#">
+      <div class="ph" style="background:linear-gradient(160deg,var(--pink),#ffb0c4)"><span class="tag">コメディ</span></div>
+      <div class="t">『合コン、6回目』</div>
+      <div class="d">今度こそ、なにも起きませんように。</div>
+    </a>
+  </div>
+</div>
+
+<footer>© 僕らの人生物語 ／ 運営: Film倶楽部株式会社</footer>
+
+</body>
+</html>
