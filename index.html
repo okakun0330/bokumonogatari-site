@@ -89,7 +89,7 @@ img,video{max-width:100%;display:block}
 .btn-2{background:var(--white);color:var(--ink)}
 
 /* sections */
-section{padding:88px 0;position:relative}
+section{padding:88px 0;position:relative;scroll-margin-top:80px}
 .eyebrow{display:inline-flex;align-items:center;gap:7px;font-family:"M PLUS Rounded 1c",sans-serif;font-size:12px;font-weight:800;letter-spacing:.1em;color:var(--pink);margin-bottom:16px}
 .eyebrow::before{content:"";width:7px;height:7px;background:var(--pink);border-radius:50%;display:inline-block}
 h2{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(24px,4.4vw,36px);font-weight:900;line-height:1.5;margin-bottom:24px}
@@ -448,6 +448,14 @@ footer{padding:56px 0 40px;text-align:center;border-top:1px solid var(--line)}
     <div class="foot-op">運営: Film倶楽部株式会社</div>
   </div>
 </footer>
+
+<script>
+document.querySelectorAll('#menu a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.getElementById('menu').classList.remove('open');
+  });
+});
+</script>
 
 </body>
 </html>
