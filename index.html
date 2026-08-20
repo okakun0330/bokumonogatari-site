@@ -190,9 +190,10 @@ h2{font-family:"M PLUS Rounded 1c",sans-serif;font-size:clamp(24px,4.4vw,36px);f
 
 /* news */
 .news-list{display:grid;gap:12px}
-.news-i{background:var(--white);border-radius:14px;box-shadow:var(--shadow);display:grid;grid-template-columns:110px 130px 1fr;gap:18px;padding:18px 22px;align-items:center;font-size:13px}
-.news-i .d{color:var(--ink-2);font-weight:700}
-.news-i .c{font-family:"M PLUS Rounded 1c",sans-serif;font-size:11px;font-weight:800;padding:5px 12px;border-radius:999px;background:var(--pink-lt);color:#B4315A;justify-self:start}
+.news-i{background:var(--white);border-radius:14px;box-shadow:var(--shadow);display:grid;grid-template-columns:110px 1fr;gap:18px;padding:20px 22px;font-size:13px}
+.news-i .d{color:var(--ink-2);font-weight:700;font-family:"M PLUS Rounded 1c",sans-serif}
+.news-i .t{font-family:"M PLUS Rounded 1c",sans-serif;font-weight:800;font-size:14px;margin-bottom:6px}
+.news-i .x{color:var(--ink-2);font-size:12px;line-height:1.9;white-space:pre-line}
 @media(max-width:560px){.news-i{grid-template-columns:1fr;gap:8px}}
 
 /* about */
@@ -324,10 +325,8 @@ footer{padding:56px 0 40px;text-align:center;border-top:1px solid var(--line)}
   <div class="wrap">
     <div class="eyebrow">NEWS</div>
     <h2>最新情報</h2>
-    <div class="news-list">
-      <div class="news-i"><div class="d">2026.09.01</div><div class="c">NEW STORY</div><div>新作ショートドラマ『おかえりのない家』を公開しました</div></div>
-      <div class="news-i"><div class="d">2026.08.10</div><div class="c">COLLABORATION</div><div>企業様とのタイアップドラマを公開しました</div></div>
-      <div class="news-i"><div class="d">2026.07.01</div><div class="c">CAST</div><div>新キャストが加入しました</div></div>
+    <div class="news-list" id="news-list">
+      <div class="news-i"><div class="d">−</div><div><div class="t">最新情報を読み込み中…</div></div></div>
     </div>
   </div>
 </section>
@@ -380,6 +379,51 @@ document.querySelectorAll('.mem-tab span').forEach(function(tab){
   });
 });
 memFilter('cast');
+
+function parseCSV(text){
+  const rows=[];
+  let row=[], field='', inQuotes=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(inQuotes){
+      if(c==='"'){
+        if(text[i+1]==='"'){field+='"';i++;}
+        else inQuotes=false;
+      } else field+=c;
+    } else {
+      if(c==='"') inQuotes=true;
+      else if(c===','){row.push(field);field='';}
+      else if(c==='\n'){row.push(field);rows.push(row);row=[];field='';}
+      else if(c==='\r'){}
+      else field+=c;
+    }
+  }
+  if(field.length||row.length){row.push(field);rows.push(row);}
+  return rows;
+}
+function escapeHtml(s){
+  return (s||'').replace(/[&<>"']/g, function(m){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m];
+  });
+}
+fetch('https://docs.google.com/spreadsheets/d/1oj1og4l0zECappe3XNXbEXp4vbsvxjh6t3yqTbzz2Vk/export?format=csv&gid=0')
+  .then(function(res){ return res.text(); })
+  .then(function(csv){
+    const rows = parseCSV(csv).filter(function(r){ return r.length>=3 && r[0] && r[0].trim(); });
+    rows.shift();
+    const items = rows.reverse().slice(0,8);
+    const list = document.getElementById('news-list');
+    if(!items.length){
+      list.innerHTML = '<div class="news-i"><div class="d"></div><div><div class="t">最新情報はまだありません</div></div></div>';
+      return;
+    }
+    list.innerHTML = items.map(function(r){
+      return '<div class="news-i"><div class="d">'+escapeHtml(r[0].trim())+'</div><div><div class="t">'+escapeHtml(r[1].trim())+'</div><div class="x">'+escapeHtml(r[2].trim())+'</div></div></div>';
+    }).join('');
+  })
+  .catch(function(){
+    document.getElementById('news-list').innerHTML = '<div class="news-i"><div class="d"></div><div><div class="t">最新情報を取得できませんでした</div></div></div>';
+  });
 </script>
 
 </body>
